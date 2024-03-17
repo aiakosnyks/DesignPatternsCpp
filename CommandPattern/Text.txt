@@ -1,0 +1,106 @@
+The Command Pattern is a behavioral design pattern that focuses on encapsulating a request
+as an object, thereby decoupling the sender of the request from the receiver. This pattern 
+allows you to parameterize objects with commands, delay or queue a request’s execution,
+and support undoable operations. It’s a fundamental pattern for implementing a wide range of
+functionality in software systems.
+
+Key components of the Command Pattern
+
+
+1. Command Interface or Abstract Class
+
+This is an interface or abstract class that declares an execute method, defining the contract for
+concrete commands. It ensures that all commands have a method to perform their actions.
+
+2. Concrete Command
+
+Concrete command classes implement the Command interface or inherit from the abstract class.
+Each concrete command encapsulates a specific action to be performed. For instance, you might
+have concrete commands to turn on lights, open files, or send messages.
+
+3. Receiver
+
+The receiver is responsible for performing the actual work when a command is executed.
+It knows how to carry out the requested action. For example, in a home automation system,
+the receiver could be a “Light” object that understands how to turn on and off.
+
+4. Invoker
+
+The invoker is responsible for triggering the execution of commands. It holds references to the
+commands and can execute them. It acts as an intermediary between the sender (client) and the receiver,
+ensuring that the sender remains decoupled from the receiver.
+
+**Command Pattern Examples in C++
+
+Problem statement: Design a system that demonstrates the use of the Command Pattern to decouple
+the sender and receiver of a request. The system should consist of several key components: Command,
+Concrete Command, Receiver, and Invoker.
+
+Problem statement: Design a system to simulate a remote control for various electronic devices.
+The system should allow users to turn these devices on and off using a remote control with multiple
+buttons. Implement the Command Pattern to achieve this functionality.
+
+Below is the step by step process to implement above problem statement:
+
+-Create an interface or base class Command that defines a execute method, which should be implemented by
+concrete commands.
+-Implement concrete command classes, such as TurnOnCommand and TurnOffCommand, to encapsulate specific
+actions for turning electronic devices on and off.
+-Create a receiver class ElectronicDevice for the electronic devices that need to be controlled. It should
+have methods to turn the device on and off.
+-Design an Invoker class RemoteControl to manage and execute the commands. It should provide the following
+features:
+
+*The ability to add commands to specific buttons on the remote control.
+*A method to press a button, which triggers the associated command’s execution.
+*Demonstrate the functionality by creating instances of electronic devices (e.g., TV, lights), concrete
+commands (turn on TV, turn off lights), and a remote control.
+*Users should be able to press the buttons on the remote control to turn electronic devices on and off.
+
+-Ensure that the system is flexible and extensible, allowing for easy addition of new electronic devices
+and commands without modifying existing code.
+
+//Advantages of the Command Pattern in C++ Design Patterns
+
++Decoupling of Sender and Receiver: The Command Pattern decouples the sender of a request from the receiver,
+meaning that the sender does not need to know the specifics of how a request is handled. This decoupling
+promotes a more flexible and maintainable codebase.
+
++Command Queueing: Commands can be easily queued, which allows for the implementation of features like
+undo and redo functionality. This is particularly useful in applications where the order of execution
+matters.
+
++Logging and Auditing: Since each command is encapsulated as an object, it becomes straightforward to
+log and audit the commands that are executed. This is valuable for tracking system behavior and debugging.
+
++Extensibility: The Command Pattern makes it easy to add new commands and expand the functionality of an
+application without altering existing code. You can introduce new command classes without affecting the
+existing classes.
+
++Support for Composite Commands: By creating composite commands (commands that contain other commands),
+you can implement complex operations. This is helpful when you need to execute a sequence of actions as
+a single command.
+
++Encapsulation of State: Commands can encapsulate the state required for their execution.
+This encapsulation ensures that a command has all the information it needs to perform its action.
+
+//Disadvantages of the Command Pattern in C++ Design Patterns
+
++Code Complexity: Implementing the Command Pattern may lead to a more extensive class hierarchy,
+particularly when dealing with various types of commands and receivers. This added complexity can be
+overwhelming for simple systems.
+
++Increased Memory Usage: As each command is represented as an object, there can be increased memory
+overhead, especially when dealing with a large number of commands. This might not be suitable for
+memory-constrained systems.
+
++Potential Performance Overhead: The use of commands and their execution can introduce a slight
+performance overhead due to the indirection involved in encapsulating requests as objects. In
+performance-critical applications, this overhead may be a concern.
+
++Learning Curve: Understanding and implementing the Command Pattern can be challenging for developers
+who are new to design patterns. It may require additional training and experience to use it effectively.
+
++Limited Use Cases: The Command Pattern is not always the best choice for every scenario. It is most
+valuable in systems where you need to decouple senders and receivers, implement undo/redo functionality,
+or log commands. In simpler systems, it might be unnecessary.

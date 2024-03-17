@@ -1,0 +1,33 @@
+**Key Concepts of the Observer Pattern**
+
+Before diving into the implementation of the Observer Pattern in C++, let’s understand its key components:
+
++Subject: This is the object that is being observed. It maintains a list of observers and notifies them of state changes.
++Observer: Observers are objects that are interested in the state changes of the subject. They register with the subject to receive updates.
++Concrete Subject: The concrete subject class inherits from the subject interface or class and is responsible for maintaining the state and notifying observers when changes occur.
++Concrete Observer: Concrete observers implement the observer interface or inherit from an observer class. They register themselves with a concrete subject and react to state changes.
+
+//Problem statement: Suppose you are developing a weather monitoring application, in which multiple weather stations are responsible for collecting weather data, and you want to create a
+system where multiple displays can show real-time weather updates. When a weather station collects new data, all registered displays should be updated automatically with the latest information.
+
+**Code Explaination:
+
+We defined an Observer interface with an update method that concrete observers must implement to display weather data.
+The WeatherStation class serves as the subject. It maintains the weather data (temperature, humidity, and pressure) and a list of registered observers.
+It provides methods to register, remove, and notify observers, as well as setting measurements and triggering updates.
+The Display class is a concrete observer that implements the update method to display weather data.
+
+-In the main function:
+we create a WeatherStation instance and two Display instances, which act as observers.
+We register the displays with the weather station, and then simulate weather data updates.
+
+//Advantages of the Observer Pattern in C++ Design Patterns
++Decoupling: The Observer Pattern promotes loose coupling between subjects and observers. Subjects don’t need to know the concrete types of their observers.
++Scalability: You can easily add or remove observers without modifying the subject. This makes it a flexible solution for systems with dynamic requirements.
++Reusability: Observers can be reused in different contexts, provided they adhere to the observer interface or class.
++Event Handling: The pattern is instrumental in event handling systems, such as GUI frameworks, where components need to respond to user actions.
+
+//Disadvantages of the Observer Pattern in C++ Design Patterns
++Memory and Performance Overhead: The use of dynamic lists of observers can introduce memory overhead, and notifying many observers can have a performance impact in large-scale systems.
++Order of Notification: The order in which observers are notified might be significant in some cases, but the pattern doesn’t inherently guarantee a specific order.
++Unintended Updates: Observers can receive updates even when they are not interested in certain changes, leading to potentially unnecessary processing.
