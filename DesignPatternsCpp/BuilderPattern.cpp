@@ -65,6 +65,7 @@ class DesktopComputerBuilder : public ComputerBuilder {
 		Computer computer_;
 };
 
+//Director
 class ComputerAssembler {
 	public:
 		Computer assembleComputer(ComputerBuilder& builder) {

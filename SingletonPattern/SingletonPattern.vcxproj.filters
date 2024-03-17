@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractFactoryPattern.cpp">
+    <ClCompile Include="SingletonPattern.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

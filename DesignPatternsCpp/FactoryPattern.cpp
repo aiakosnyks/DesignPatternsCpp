@@ -1,7 +1,7 @@
 //Abstract product class
-
 #include <stdlib.h>
 #include <iostream>
+
 class Shape {
 	public:
 		virtual void draw() = 0;
@@ -13,7 +13,7 @@ class Shape {
 class Circle : public Shape {
 public:
 	void draw() override {
-		std::cout << "Drawing a Square"
+		std::cout << "Drawing a Circle"
 			<< std::endl;
 	}
 };
@@ -50,7 +50,7 @@ class SquareFactory : public ShapeFactory {
 		}
 };
 
-int Main() {
+int main() {
 	ShapeFactory* circleFactory = new CircleFactory();
 	ShapeFactory* squareFactory = new SquareFactory();
 
